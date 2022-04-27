@@ -1,218 +1,121 @@
-/*Comentario de bloque*/
+/*AGREGANDO SASS A MI PROYECTO*/
+/*IMPORTS*/
+/*COLORES USADOS DENTRO DE LA PAGINA*/
 * {
-    margin: 0; padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 @font-face {
-    font-family: 'Lobster';
-    src: url("../Lobster/Lobster-Regular.ttf");
+  font-family: "Lobster";
+  src: url("../Lobster/Lobster-Regular.ttf");
 }
-
-.fondoHome {
-    /*width: 100vh;*/
-    background-image: url("../images/FondoHome.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
-}
-
-header div {
-    width: 100%;
-    background-color: #45bcb8;
-    padding: 15px;
-    text-align: center;
-    font-family: 'Lobster';
-    text-shadow: 1px 1px 1px gray;
-    font-size: x-large;
-    border-radius: 15px;
-    box-shadow: 0px 1px #ca627d;
-}
-
-header div:hover {
-    margin-top: 2vh;
-    box-shadow: 0px 5px 5px #ca627d;
-}
-
-header a {
-    text-decoration: none;
-    color: #f5f5f5;
-    border
-}
-
-/*Flex box*/
-.headerFlex {
-    display: flex;
-    flex-flow: row;
-    justify-content: space-around;
-    height: 5vh;
-    background-color: #45bcb8;
-    box-shadow: 0px 1px #ca627d
-}
-
-/*Animacion del Header*/
-.animatedMenu{
-    animation-name: movimiento;
-    animation-duration: 2s;
-}
-
-@keyframes movimiento {
-    from {
-        transform: translateY(-100px);
-        opacity: 0;  
-    }
-    
-    to {
-       transform: translateY(0); 
-    }
-}
-
-/*Animacion del header de Nuestra Historia*/
-
-.animateText {
-    animation-name: deslizamiento;
-    animation-duration: 4s;
-    animation-timing-function:4s cubic-bezier(0,1,1,-0.01)
-}
-
-@keyframes deslizamiento {
-    from {
-       transform: translateX(1000px);    
-    }
-
-    to {
-      transform: translateX(0); 
-    }
-}
-
-/*Degradado de menu*/
-.headerFlex div {
-    background-image: linear-gradient(0deg, #20bf55 0%, #45bcb8 54%);
-}
-
-body {
-    width: 100%;
-    height: 100vh;
-}
-
 #gridHistory {
-    display: grid;
-    /*Estructura grids areas*/
-    grid-template-areas: 
-    "headerHis headerHis headerHis"
-    "image paragraph paragraph"
-    "subtitle subtitle subtitle"
-    "testimony testimony testimony"
-    "footer footer footer";
-
-    grid-template-columns: 40% 30% 30%;
-    grid-template-rows: 15% 85% 10% 86% 4%;
+  display: grid;
+  /*Estructura grids areas*/
+  grid-template-areas: "headerHis headerHis headerHis" "image paragraph paragraph" "subtitle subtitle subtitle" "testimony testimony testimony" "footer footer footer";
+  grid-template-columns: 40% 30% 30%;
+  grid-template-rows: 15% 85% 10% 86% 4%;
+}
+#gridHistory body {
+  width: 100%;
+  height: 100vh;
+}
+#gridHistory .headerHistory {
+  grid-area: headerHis;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #45bcb8;
+  box-shadow: 0px 5px #fffbbb;
+  font-family: "Lobster";
+}
+#gridHistory .headerHistory h1 {
+  display: flex;
+  margin: auto 0% auto 3%;
+  font-size: xxx-large;
+  text-shadow: 1px 1px 1px black;
+  color: #f5f5f5;
+  border-bottom: 1px solid #f5f5f5;
+}
+#gridHistory .headerHistory h2 {
+  display: flex;
+  margin: auto 3% auto 0%;
+  font-size: xxx-large;
+  text-shadow: 1px 1px 1px black;
+  color: #f5f5f5;
+  border-bottom: 1px solid #f5f5f5;
+}
+#gridHistory .headerHistory .animateText {
+  animation-name: deslizamiento;
+  animation-duration: 4s;
+  animation-timing-function: 4s cubic-bezier(0, 1, 1, -0.01);
+}
+@keyframes deslizamiento {
+  from {
+    transform: translateX(1000px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+#gridHistory #container-image {
+  grid-area: image;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+#gridHistory #container-image .imgSize {
+  width: 100%;
+}
+#gridHistory #container-paragraph {
+  display: flex;
+  grid-area: paragraph;
+  text-align: justify;
+  padding: 10%;
+  background-image: linear-gradient(150deg, #45bcb8 0%, #f5f5f5 30%);
+}
+#gridHistory .subtitle {
+  grid-area: subtitle;
+  display: flex;
+  background-color: #45bcb8;
+  font-family: "Lobster";
+}
+#gridHistory .subtitle h2 {
+  text-align: center;
+  margin: auto;
+  color: #f5f5f5;
+  text-shadow: 1px 1px 1px gray;
+  font-size: xx-large;
+}
+#gridHistory .testimony {
+  grid-area: testimony;
+  display: flex;
+  flex-wrap: wrap;
+}
+#gridHistory .testimony div {
+  width: 30wh;
+  background-color: gray;
+  margin: 5px;
+  width: 30%;
+  height: 47%;
+  border: 1px solid black;
+}
+#gridHistory .testimony img {
+  width: 100%;
+  height: 100%;
+}
+#gridHistory .testimony .transitionImages {
+  transition: all 50ms;
+}
+#gridHistory .testimony .transitionImages:hover {
+  border: 4px solid black;
+}
+#gridHistory .footerHistory {
+  grid-area: footer;
+  font-family: "Lobster";
+  text-align: center;
+  background-color: #45bcb8;
 }
 
-.headerHistory {
-    grid-area: headerHis;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: #45bcb8;
-    box-shadow: 0px 5px #fffbbb;
-    font-family: 'Lobster';
-}
-
-.headerHistory h1 {
-    display: flex;
-    margin: auto 0% auto 3%;
-    font-size: xxx-large;
-    text-shadow: 1px 1px 1px black;
-    color: #f5f5f5;
-    border-bottom: 1px solid #f5f5f5;  
-}
-
-.headerHistory h2 {
-    display: flex;
-    margin: auto 3% auto 0%;
-    font-size: xxx-large;
-    text-shadow: 1px 1px 1px black;
-    color: #f5f5f5;
-    border-bottom: 1px solid #f5f5f5;  
-}
-
-#container-image {
-    grid-area: image;
-    display: flex;
-    width: 100%;
-    height: 100%;
-}
-
-.imgSize {
-    width: 100%;
-}
-
-
-#container-paragraph {
-    display: flex;
-    grid-area: paragraph;
-    text-align: justify;
-    padding: 10%;
-    background-image: linear-gradient(150deg, #45bcb8 0%, #f5f5f5 30%);
-}
-
-.subtitle {
-    grid-area: subtitle;
-    display: flex;
-    background-color: #45bcb8;
-    font-family: 'Lobster';  
-}
-
-.subtitle h2 {
-    text-align: center;
-    margin: auto;
-    color: #f5f5f5;
-    text-shadow: 1px 1px 1px gray;
-    font-size: xx-large;
-}
-
-.testimony {
-    grid-area: testimony;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.testimony div {
-    width: 30wh;
-    background-color: #ca627d;
-    margin: 5px;
-    width: 30%;
-    height: 47%;
-    border: 1px solid black;
-}
-
-/*Transiciones Imagenes de Testimonios*/
-.transitionImages {
-    transition: all 50ms;
-}
-
-.transitionImages:hover {
-    border: 4px solid black;
-}
-
-.testimony div img {
-    width: 100%;
-    height: 100%;
-}
-
-.footerHistory {
-    grid-area: footer;
-    font-family: 'Lobster';
-    text-align: center;
-    background-color: #45bcb8;
-}
-
-/*Pagina Libros*/
-.containerBooks {
-    width: 100%;
-    height: 100vh;
-}
-
-
-
+/*# sourceMappingURL=styles.css.map */
