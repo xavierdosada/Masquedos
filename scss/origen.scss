@@ -1,5 +1,11 @@
 /*AGREGANDO SASS A MI PROYECTO*/
 
+/*MIXIN*/
+@mixin tamaño ($ancho, $alto){
+    width: $ancho;
+    height: $alto;
+}
+
 /*IMPORTS*/
 
 @import "colores";
@@ -12,24 +18,10 @@
     src: url("../Lobster/Lobster-Regular.ttf");
 }
 
-#gridHistory {
-    body {
-        width: 100%;
-        height: 100vh;
-    }
-    display: grid;
-    /*Estructura grids areas*/
-    grid-template-areas: 
-    "headerHis headerHis headerHis"
-    "image paragraph paragraph"
-    "subtitle subtitle subtitle"
-    "testimony testimony testimony"
-    "footer footer footer";
+/*EL HEADER ES EL MISMO PARA CADA PAGINA */
 
-    grid-template-columns: 40% 30% 30%;
-    grid-template-rows: 15% 85% 10% 86% 4%;
-
-    .headerHistory {
+@each $sections in NuestraHistoria, AlimentoDiario, CursosEntrevistas, PlanRestaurar, Libros  {
+    .header#{$sections} {
         grid-area: headerHis;
         display: flex;
         flex-direction: row;
@@ -48,13 +40,10 @@
             
         }
         h2 {
-            display: flex;
+            @extend h1;
             margin: auto 3% auto 0%;
-            font-size: xxx-large;
-            text-shadow: 1px 1px 1px $negro;
-            color: $blanco;
-            border-bottom: 1px solid $blanco;
         }
+
 
         .animateText {
             animation-name: deslizamiento;
@@ -70,13 +59,30 @@
                 }
             }
         }
-        
+    } 
+}
+
+
+#gridHistory {
+    body {
+        @include tamaño (100%, 100vh);
     }
+
+    display: grid;
+    grid-template-areas: 
+    "headerHis headerHis headerHis"
+    "image paragraph paragraph"
+    "subtitle subtitle subtitle"
+    "testimony testimony testimony"
+    "footer footer footer";
+
+    grid-template-columns: 40% 30% 30%;
+    grid-template-rows: 15% 85% 10% 86% 4%;
+
     #container-image {
         grid-area: image;
         display: flex;
-        width: 100%;
-        height: 100%;
+        @include tamaño (100%, 100%);
         .imgSize {
             width: 100%;
         }
@@ -106,16 +112,13 @@
         display: flex;
         flex-wrap: wrap;
         div {
-            width: 30wh;
+            @include tamaño (30%, 47%);
             background-color: $gris;
             margin: 5px;
-            width: 30%;
-            height: 47%;
             border: 1px solid $negro
         }
         img {
-                width: 100%;
-                height: 100%;
+            @include tamaño (100%, 100%);
         }
         .transitionImages {
             transition: all 50ms;
@@ -130,4 +133,48 @@
         text-align: center;
         background-color: $celeste;
     }
+}
+
+/****************** GRID PLAN RESTAURAR ********************/
+
+#gridPlanRestaurar {
+    body {
+        @include tamaño (100%, 100vh);
+    }
+
+    display: grid;
+    grid-template-rows: 15% 70% 15%; 
+}
+
+/****************** GRID ALIMENTO DIARIO ********************/
+
+#gridAlimentoDiario {
+    body {
+        @include tamaño (100%, 100vh);
+    }
+
+    display: grid;
+    grid-template-rows: 15% 70% 15%; 
+}
+
+/****************** GRID CURSOS ENTREVISTAS ********************/
+
+#gridCursosEntrevistas {
+    body {
+        @include tamaño (100%, 100vh);
+    }
+
+    display: grid;
+    grid-template-rows: 15% 70% 15%; 
+}
+
+/****************** GRID LIBROS ********************/
+
+#gridCursosEntrevistas {
+    body {
+        @include tamaño (100%, 100vh);
+    }
+
+    display: grid;
+    grid-template-rows: 15% 70% 15%; 
 }
