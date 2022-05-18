@@ -2,6 +2,10 @@
     margin: 0; padding: 0;
 }
 
+@import "boxstyle";
+@import "sitioEnConstruccion";
+@import "fondoImg";
+
 @font-face {
     font-family: 'Lobster';
     src: url("../Lobster/Lobster-Regular.ttf")
@@ -15,6 +19,23 @@
 body {
     @include tamaño (100%, 100vh);
     background-color: rgb(221, 249, 255);
+}
+
+/*Animacion del Header*/
+#animatedMenu{
+    animation-name: movimiento;
+    animation-duration: 5s;
+}
+
+@keyframes movimiento {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;  
+    }
+    
+    to {
+       transform: translateY(0); 
+    }
 }
 
 /************************  HEADERS y TITULOS  *******************************/
@@ -32,6 +53,7 @@ body {
         a {
             color: white;
             text-decoration: none;
+            text-shadow: 0 0 2px black;
         }
         h1 {
             margin: auto;
@@ -47,6 +69,7 @@ body {
         padding-left: 3%;
         background-color: #45bcb8;
         box-shadow: 0px 0px 10px black;
+        text-shadow: 0 0 2px black;
             
         h2 {
             margin: 2px 0% 0% 5px;
@@ -68,17 +91,21 @@ body {
     "footer footer";
 
     grid-template-columns: 50% 50%;
-    grid-template-rows: 10% 8% 82% 5%;
+    grid-template-rows: 10% 8% 82% 90%;
+
+    font-family: "Lobster";
 
     .header {
         grid-area: header;
         display: flex;
         flex-flow: row nowrap;
         justify-content: center;
+        @include tamaño(100%, 10%);
+        position: fixed;
         box-shadow: 0px 0px 20px black;
         background-color: #45bcb8;
         background-image: linear-gradient(315deg, #f8ef42 -10%, #45bcb8 54%, #eec0c6 110%);
-
+        text-shadow: 0 0 2px black;
         h1 {
             margin: auto;
             font-family: "Lobster";
@@ -92,8 +119,11 @@ body {
         display: flex;
         flex-flow: row nowrap;
         justify-content: space-between;
+        font-size: x-large;
+
         a {
-            color: #000;
+            color: white;
+            text-shadow: 0 0 2px black;
             margin: auto;
             padding: 5px;
             text-decoration: none;
@@ -101,7 +131,7 @@ body {
         div {
             margin: auto;
             padding: 5px;
-            border-bottom: 2px solid black;
+            border-bottom: 1px solid black;
             &:hover {
                 color: #45bcb8;
                 border-bottom: 2px solid #45bcb8;
@@ -113,15 +143,17 @@ body {
         grid-area: image;
         display: flex;
         flex-flow: row nowrap;
+
         .divImage {
+            @include tamaño(70%,70%);
+            padding: 5%;
+            background-image: url("../images/MasQueDos_Completa.jpg");
             margin: auto;
             border-radius:5px;
             border: 1px solid #999;
             box-shadow: 2px 2px 10px 2px black;
-            padding:35%;
             background-size: 100% 100%;
             background-repeat:no-repeat;
-            background:url(../images/MasQueDos_PastoresDoba.jpg);
             background-size: cover;
         }
     }
@@ -130,25 +162,58 @@ body {
         grid-area: paragraph;
         display: flex;
         flex-flow: row nowrap;
+        
         .divParagraph {
-            margin: 4% 4% 4% 4%;
-            padding: 2%;
-            border-radius: 20px;
-            box-shadow: 5px 0px 5px 0px black;
-            background-size: 100% 100%;
-            background-repeat:no-repeat;
-            background:url("http://cdn26.us1.fansshare.com/photo/wallpaperbackground/vintage-textured-wallpaper-hd-vintage-688868932.jpg");
-            background-size: cover;
+            @include tamaño(70%,70%);
+            padding: 5%;
+            background:url("https://us.123rf.com/450wm/ke77kz/ke77kz1410/ke77kz141000580/33084829-vieja-textura-del-papel-del-grunge-fondo-de-papel-de-grunge-natural-para-el-dise%C3%B1o-.jpg");
+            @include fondoImg;
+            text-align: justify;
+            overflow: auto;
         }
     }
 
     .footerHome {
         grid-area: footer;
         display: flex;
+        flex-direction: column;
+        justify-content: center;
         background-color: #45bcb8;
+
+        .pform {
+            font-size: x-large;
+            height: 5%;
+            margin: auto;
+            text-align: center;
+            color: white;
+            padding-top: 3%;
+            text-shadow: 0 0 2px black;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 3px solid white;
+            border-radius: 30px;
+            margin: auto;
+            padding: 2%;
+            input {
+                border-radius: 30px;
+                border-color: white;
+                padding: 5px;
+            }
+
+            .pTyC {
+                padding: 10px;
+                color: white;
+                text-shadow: 0 0 2px black;
+            }
+        }
         h4 {
             margin: auto;
             color: white;
+            text-shadow: 0 0 2px black;
         }
         
     }
@@ -172,16 +237,12 @@ body {
         grid-area: image;
         display: flex;
         flex-flow: row nowrap;
+
         .divImageNuestraHistoria {
-            margin: auto;
-            border-radius:5px;
-            border: 1px solid #999;
-            box-shadow: 2px 2px 10px 2px black;
-            padding:35%;
-            background-size: 100% 100%;
-            background-repeat:no-repeat;
+            @include tamaño(70%,70%);
+            padding:5%;
             background:url("https://cdn0.bodas.com.mx/article-real-wedding/037/3_2/1280/jpg/1304931.jpeg");
-            background-size: cover;
+            @include fondoImg;
         }
     }
 
@@ -190,14 +251,13 @@ body {
         display: flex;
         flex-flow: row nowrap;
         .divParagraphNH {
-            margin: 4% 4% 4% 4%;
-            padding: 2%;
-            border-radius: 20px;
-            box-shadow: 5px 0px 5px 0px black;
-            background-size: 100% 100%;
-            background-repeat:no-repeat;
-            background:url("http://cdn26.us1.fansshare.com/photo/wallpaperbackground/vintage-textured-wallpaper-hd-vintage-688868932.jpg");
-            background-size: cover;
+            /*margin: auto;*/
+            @include tamaño(70%,70%);
+            padding: 5%;
+            background:url("https://us.123rf.com/450wm/ke77kz/ke77kz1410/ke77kz141000580/33084829-vieja-textura-del-papel-del-grunge-fondo-de-papel-de-grunge-natural-para-el-dise%C3%B1o-.jpg");
+            @include fondoImg;
+            text-align: justify;
+            overflow: auto;
         }
     }
 
@@ -214,6 +274,7 @@ body {
             font-family: "Lobster";
             font-size: x-large;
             color: white;
+            text-shadow: 0 0 2px black;
         }
     }   
 
@@ -244,11 +305,69 @@ body {
 #gridCursosEntrevistas {
     display: grid;
     grid-template-areas: 
-    "header"
-    "title"
-    "image";
+    "header header"
+    "title title"
+    "video video"
+    "calendar turns";
 
-    grid-template-rows: 10% 5% 85%;
+    grid-template-columns: 70% 30%;
+    grid-template-rows: 10% 5% 85% 100%;
+
+    .mainVideo {
+        grid-area: video;
+        display: flex;
+        padding: 3%;
+        justify-content: center;
+        
+
+        .boxVideo {
+            @include tamaño(100%, 72vh);
+            @include boxstyle;
+            iframe {
+                @include tamaño(100%, 100%);
+            }
+        }
+    }
+    
+
+    #calendar {
+        grid-area: calendar;
+        padding: 3%;
+        
+        iframe {
+            @include boxstyle;
+            @include tamaño(100%, 100%);
+        }
+    }
+
+    #turns {
+        grid-area: turns;
+        display: flex;
+        padding: 30%;
+        
+        div {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            p {
+             text-align: justify; 
+            }
+
+            button {
+                @include boxstyle;
+                @include tamaño(100%, 20%);
+                color: white;
+                background-color: #45bcb8;
+                font-family: "Lobster";
+                font-size: medium;
+                h3 {
+                    margin: auto;
+                    text-shadow: 0 0 2px black;
+                }
+            }
+        }
+    }
+    
 }
 
 /************************  Alimento Diario  *******************************/
@@ -261,6 +380,9 @@ body {
     "image";
 
     grid-template-rows: 10% 5% 85%;
+    font-family: "Lobster";
+
+    @include sitioEnConstruccion;
 }
 
 /************************  Plan Restaurar  *******************************/
@@ -294,12 +416,13 @@ body {
                 text-align: center;
                 padding: 20px;
                 color: white;
-                border: 1px solid #999;
+                border: 1px solid black;
                 border-radius: 50px;
                 background-color: #45bcb8;
+                text-shadow: 0 0 2px black;
                 &:hover {
-                    transition:500ms ease-in-out;
                     background-color: #369a96;
+                    border: 2px solid black;
                 }
             }
         }
@@ -319,101 +442,197 @@ body {
     grid-template-areas: 
     "header"
     "title"
-    "image";
+    "libros";
 
     grid-template-rows: 10% 5% 85%;
+
+    #contentCarrusel {
+        overflow: hidden;
+        a {
+            text-decoration: none;
+            font-size: xxx-large;
+            color: black;
+            &:hover {
+                color: #45bcb8;
+            }
+        }
+
+        .carrusel {           
+            height: 100%;
+            position: relative;
+
+            .tarjetaCarrusel {                
+                height: 100%;
+            }
+
+            .flechasCarrusel {                
+                position: absolute;
+                top: 0;
+                @include tamaño(100%, 100%);
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            #slide-1 {
+                grid-area: image;
+                display: flex;
+                justify-content: center;
+
+                .imgLibros {
+                    background:url("../images/Libro1.jpg");
+                    padding: 15%;
+                    @include fondoImg;
+                }
+            }
+
+            #slide-2 {
+                grid-area: image;
+                display: flex;
+                justify-content: center;
+                .imgLibros {
+                    background:url("../images/Libro2.jpg");
+                    padding:15%;
+                    @include fondoImg;
+                }
+            }
+
+            #slide-3 {
+                grid-area: image;
+                display: flex;
+                justify-content: center;
+                .imgLibros {
+                    background:url("../images/Libro3.jpg");
+                    padding:15%; 
+                    @include fondoImg;                   
+                }
+            }
+        }
+    }
 }
 
-    /*PARA SITIOS EN CONSTRUCCION*/
+/*MEDIA QUERIES*/
 
-    .mainConstruccion {
+@media (max-width: 992px) {
 
+/*MQ HOME*/
+
+    #gridHome {
+        grid-template-areas: 
+        "header"
+        "menu"
+        "image"
+        "paragraph"
+        "footer";
+    
+        grid-template-columns: 100%;
+        grid-template-rows: 10% 8% 82% 50% 90%;
+        .imageHome {
+            .divImage {
+                background-image: url("../images/MasQueDos_Completa.jpg");
+            }
+        }
+    }
+
+/*MQ NUESTRA HISTORIA*/
+
+    #gridNuestraHistoria {
+        display: grid;
+        grid-template-areas: 
+        "header"
+        "title"
+        "image"
+        "paragraph"
+        "subtitle"
+        "testimony";
+    
+        grid-template-columns: 100%;
+        grid-template-rows: 10% 5% 85% 70% 5% 95%; 
+    
+        .testimony {
+            grid-area: testimony;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            align-content: stretch;
+            div {
+                @include tamaño(40%, 47%);
+            }  
+        }    
+    }
+} 
+
+@media (max-width: 768px) {
+
+/*MQ HOME*/
+
+    #gridHome {
+        .imageHome {
+            .divImage {
+                @include tamaño(85%,70%);
+                background-image: url("../images/MasQueDos_media768px.jpg");
+            }
+        }
+        .paragraphHome {    
+            .divParagraph {
+                @include tamaño(85%,70%);
+            }
+        }   
+    }
+}
+
+@media (max-width: 576px) {
+
+/*MQ HOME*/
+
+    #gridHome {
+        .imageHome {
+            .divImage {
+                background-image: url("../images/MasQueDos_Completa.jpg");
+            }
+        }
+    }
+
+/*MQ NUESTRA HISTORIA*/
+    #gridNuestraHistoria {
+        .testimony {
+            div {
+                @include tamaño(70%, 47%);
+            }  
+        }    
+    } 
+
+/*MQ CURSOS Y ENTREVISTAS*/
+
+#gridCursosEntrevistas {
+    display: grid;
+    grid-template-areas: 
+    "header"
+    "title"
+    "video"
+    "calendar"
+    "turns";
+
+    grid-template-columns: 100%;
+    grid-template-rows: 10% 5% 85% 70% 30%;
+
+    #turns {
+        padding: 1%;
+        div {
+            button {
+                @include tamaño(100%, 50%);
+            }
+        }
+    }
+}
+
+/*MQ ALIMENTO DIARIO*/
+    #ADrespo {
         display: flex;
-        background-color: #e1d828;
-        justify-content: center;
-        padding: 15em 0;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-content: stretch;
+    }
+}  
 
-        .animatedSitio{
-            animation-name: izq;
-            animation-duration: 8s;
-            padding: 20px;
-            font-size: xxx-large;
-            &:hover {
-                color: red;
-            }
-        }
-        
-        @keyframes izq {
-            from {
-                transform: translateX(-200px);
-                opacity: 0;  
-            }
-            
-            to {
-               transform: translateX(0); 
-            }
-        }
-
-        .animateden{
-            animation-name: arriba;
-            animation-duration: 8s;
-            padding: 20px;
-            font-size: xxx-large;
-            &:hover {
-                color: red;
-            }
-        }
-        
-        @keyframes arriba {
-            from {
-                transform: translateY(-200px);
-                opacity: 0;  
-            }
-            
-            to {
-               transform: translateY(0); 
-            }
-        }
-
-        .animatedconstruccion{
-            animation-name: abajo;
-            animation-duration: 8s;
-            padding: 20px;
-            font-size: xxx-large;
-            &:hover {
-                color: red;
-            }
-        }
-        
-        @keyframes abajo {
-            from {
-                transform: translateY(200px);
-                opacity: 0;  
-            }
-            
-            to {
-               transform: translateY(0); 
-            }
-        }
-
-        .animatedcarac{
-            animation-name: derecha;
-            animation-duration: 8s;
-            padding: 20px;
-            font-size: xxx-large;
-            &:hover {
-                color: red;
-            }
-        }
-        
-        @keyframes derecha {
-            from {
-                transform: translateX(200px);
-                opacity: 0;  
-            }
-            
-            to {
-               transform: translateX(0); 
-            }
-        }
-    }    
+    

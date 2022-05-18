@@ -3,6 +3,9 @@
   padding: 0;
 }
 
+/*ESITLO DE LAS CAJAS*/
+/*PARA SITIOS EN CONSTRUCCION*/
+/*Codigo repetido para fondo de imagen*/
 @font-face {
   font-family: "Lobster";
   src: url("../Lobster/Lobster-Regular.ttf");
@@ -13,6 +16,21 @@ body {
   background-color: rgb(221, 249, 255);
 }
 
+/*Animacion del Header*/
+#animatedMenu {
+  animation-name: movimiento;
+  animation-duration: 5s;
+}
+
+@keyframes movimiento {
+  from {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+  }
+}
 /************************  HEADERS y TITULOS  *******************************/
 /*Todas las paginas tendra el mismo header que nos llevara al home. Y cada una su correspondiente Titulo de pagina.*/
 .headerNuestraHistoria {
@@ -27,6 +45,7 @@ body {
 .headerNuestraHistoria a {
   color: white;
   text-decoration: none;
+  text-shadow: 0 0 2px black;
 }
 .headerNuestraHistoria h1 {
   margin: auto;
@@ -41,6 +60,7 @@ body {
   padding-left: 3%;
   background-color: #45bcb8;
   box-shadow: 0px 0px 10px black;
+  text-shadow: 0 0 2px black;
 }
 .titleNuestraHistoria h2 {
   margin: 2px 0% 0% 5px;
@@ -61,6 +81,7 @@ body {
 .headerAlimentoDiario a {
   color: white;
   text-decoration: none;
+  text-shadow: 0 0 2px black;
 }
 .headerAlimentoDiario h1 {
   margin: auto;
@@ -75,6 +96,7 @@ body {
   padding-left: 3%;
   background-color: #45bcb8;
   box-shadow: 0px 0px 10px black;
+  text-shadow: 0 0 2px black;
 }
 .titleAlimentoDiario h2 {
   margin: 2px 0% 0% 5px;
@@ -95,6 +117,7 @@ body {
 .headerCursosEntrevistas a {
   color: white;
   text-decoration: none;
+  text-shadow: 0 0 2px black;
 }
 .headerCursosEntrevistas h1 {
   margin: auto;
@@ -109,6 +132,7 @@ body {
   padding-left: 3%;
   background-color: #45bcb8;
   box-shadow: 0px 0px 10px black;
+  text-shadow: 0 0 2px black;
 }
 .titleCursosEntrevistas h2 {
   margin: 2px 0% 0% 5px;
@@ -129,6 +153,7 @@ body {
 .headerPlanRestaurar a {
   color: white;
   text-decoration: none;
+  text-shadow: 0 0 2px black;
 }
 .headerPlanRestaurar h1 {
   margin: auto;
@@ -143,6 +168,7 @@ body {
   padding-left: 3%;
   background-color: #45bcb8;
   box-shadow: 0px 0px 10px black;
+  text-shadow: 0 0 2px black;
 }
 .titlePlanRestaurar h2 {
   margin: 2px 0% 0% 5px;
@@ -163,6 +189,7 @@ body {
 .headerLibros a {
   color: white;
   text-decoration: none;
+  text-shadow: 0 0 2px black;
 }
 .headerLibros h1 {
   margin: auto;
@@ -177,6 +204,7 @@ body {
   padding-left: 3%;
   background-color: #45bcb8;
   box-shadow: 0px 0px 10px black;
+  text-shadow: 0 0 2px black;
 }
 .titleLibros h2 {
   margin: 2px 0% 0% 5px;
@@ -190,16 +218,21 @@ body {
   display: grid;
   grid-template-areas: "header header" "menu menu" "image paragraph" "footer footer";
   grid-template-columns: 50% 50%;
-  grid-template-rows: 10% 8% 82% 5%;
+  grid-template-rows: 10% 8% 82% 90%;
+  font-family: "Lobster";
 }
 #gridHome .header {
   grid-area: header;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
+  width: 100%;
+  height: 10%;
+  position: fixed;
   box-shadow: 0px 0px 20px black;
   background-color: #45bcb8;
   background-image: linear-gradient(315deg, #f8ef42 -10%, #45bcb8 54%, #eec0c6 110%);
+  text-shadow: 0 0 2px black;
 }
 #gridHome .header h1 {
   margin: auto;
@@ -212,9 +245,11 @@ body {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+  font-size: x-large;
 }
 #gridHome .menuHome a {
-  color: #000;
+  color: white;
+  text-shadow: 0 0 2px black;
   margin: auto;
   padding: 5px;
   text-decoration: none;
@@ -222,7 +257,7 @@ body {
 #gridHome .menuHome div {
   margin: auto;
   padding: 5px;
-  border-bottom: 2px solid black;
+  border-bottom: 1px solid black;
 }
 #gridHome .menuHome div:hover {
   color: #45bcb8;
@@ -234,14 +269,16 @@ body {
   flex-flow: row nowrap;
 }
 #gridHome .imageHome .divImage {
+  width: 70%;
+  height: 70%;
+  padding: 5%;
+  background-image: url("../images/MasQueDos_Completa.jpg");
   margin: auto;
   border-radius: 5px;
   border: 1px solid #999;
   box-shadow: 2px 2px 10px 2px black;
-  padding: 35%;
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  background: url(../images/MasQueDos_PastoresDoba.jpg);
   background-size: cover;
 }
 #gridHome .paragraphHome {
@@ -250,23 +287,59 @@ body {
   flex-flow: row nowrap;
 }
 #gridHome .paragraphHome .divParagraph {
-  margin: 4% 4% 4% 4%;
-  padding: 2%;
-  border-radius: 20px;
-  box-shadow: 5px 0px 5px 0px black;
+  width: 70%;
+  height: 70%;
+  padding: 5%;
+  background: url("https://us.123rf.com/450wm/ke77kz/ke77kz1410/ke77kz141000580/33084829-vieja-textura-del-papel-del-grunge-fondo-de-papel-de-grunge-natural-para-el-dise%C3%B1o-.jpg");
+  margin: auto;
+  border-radius: 5px;
+  border: 1px solid #999;
+  box-shadow: 2px 2px 10px 2px black;
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  background: url("http://cdn26.us1.fansshare.com/photo/wallpaperbackground/vintage-textured-wallpaper-hd-vintage-688868932.jpg");
   background-size: cover;
+  text-align: justify;
+  overflow: auto;
 }
 #gridHome .footerHome {
   grid-area: footer;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-color: #45bcb8;
+}
+#gridHome .footerHome .pform {
+  font-size: x-large;
+  height: 5%;
+  margin: auto;
+  text-align: center;
+  color: white;
+  padding-top: 3%;
+  text-shadow: 0 0 2px black;
+}
+#gridHome .footerHome div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 3px solid white;
+  border-radius: 30px;
+  margin: auto;
+  padding: 2%;
+}
+#gridHome .footerHome div input {
+  border-radius: 30px;
+  border-color: white;
+  padding: 5px;
+}
+#gridHome .footerHome div .pTyC {
+  padding: 10px;
+  color: white;
+  text-shadow: 0 0 2px black;
 }
 #gridHome .footerHome h4 {
   margin: auto;
   color: white;
+  text-shadow: 0 0 2px black;
 }
 
 /************************  NUESTRA HISTORIA  *******************************/
@@ -282,14 +355,16 @@ body {
   flex-flow: row nowrap;
 }
 #gridNuestraHistoria .imageNuestraHistoria .divImageNuestraHistoria {
+  width: 70%;
+  height: 70%;
+  padding: 5%;
+  background: url("https://cdn0.bodas.com.mx/article-real-wedding/037/3_2/1280/jpg/1304931.jpeg");
   margin: auto;
   border-radius: 5px;
   border: 1px solid #999;
   box-shadow: 2px 2px 10px 2px black;
-  padding: 35%;
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  background: url("https://cdn0.bodas.com.mx/article-real-wedding/037/3_2/1280/jpg/1304931.jpeg");
   background-size: cover;
 }
 #gridNuestraHistoria .paragraphNH {
@@ -298,14 +373,20 @@ body {
   flex-flow: row nowrap;
 }
 #gridNuestraHistoria .paragraphNH .divParagraphNH {
-  margin: 4% 4% 4% 4%;
-  padding: 2%;
-  border-radius: 20px;
-  box-shadow: 5px 0px 5px 0px black;
+  /*margin: auto;*/
+  width: 70%;
+  height: 70%;
+  padding: 5%;
+  background: url("https://us.123rf.com/450wm/ke77kz/ke77kz1410/ke77kz141000580/33084829-vieja-textura-del-papel-del-grunge-fondo-de-papel-de-grunge-natural-para-el-dise%C3%B1o-.jpg");
+  margin: auto;
+  border-radius: 5px;
+  border: 1px solid #999;
+  box-shadow: 2px 2px 10px 2px black;
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  background: url("http://cdn26.us1.fansshare.com/photo/wallpaperbackground/vintage-textured-wallpaper-hd-vintage-688868932.jpg");
   background-size: cover;
+  text-align: justify;
+  overflow: auto;
 }
 #gridNuestraHistoria .subtitleNH {
   grid-area: subtitle;
@@ -320,6 +401,7 @@ body {
   font-family: "Lobster";
   font-size: x-large;
   color: white;
+  text-shadow: 0 0 2px black;
 }
 #gridNuestraHistoria .testimony {
   grid-area: testimony;
@@ -345,8 +427,68 @@ body {
 /************************  Cursos y Entrevistas  *******************************/
 #gridCursosEntrevistas {
   display: grid;
-  grid-template-areas: "header" "title" "image";
-  grid-template-rows: 10% 5% 85%;
+  grid-template-areas: "header header" "title title" "video video" "calendar turns";
+  grid-template-columns: 70% 30%;
+  grid-template-rows: 10% 5% 85% 100%;
+}
+#gridCursosEntrevistas .mainVideo {
+  grid-area: video;
+  display: flex;
+  padding: 3%;
+  justify-content: center;
+}
+#gridCursosEntrevistas .mainVideo .boxVideo {
+  width: 100%;
+  height: 72vh;
+  display: flex;
+  flex-direction: row;
+  border-radius: 1%;
+  box-shadow: 0px 0px 10px black;
+}
+#gridCursosEntrevistas .mainVideo .boxVideo iframe {
+  width: 100%;
+  height: 100%;
+}
+#gridCursosEntrevistas #calendar {
+  grid-area: calendar;
+  padding: 3%;
+}
+#gridCursosEntrevistas #calendar iframe {
+  display: flex;
+  flex-direction: row;
+  border-radius: 1%;
+  box-shadow: 0px 0px 10px black;
+  width: 100%;
+  height: 100%;
+}
+#gridCursosEntrevistas #turns {
+  grid-area: turns;
+  display: flex;
+  padding: 30%;
+}
+#gridCursosEntrevistas #turns div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+#gridCursosEntrevistas #turns div p {
+  text-align: justify;
+}
+#gridCursosEntrevistas #turns div button {
+  display: flex;
+  flex-direction: row;
+  border-radius: 1%;
+  box-shadow: 0px 0px 10px black;
+  width: 100%;
+  height: 20%;
+  color: white;
+  background-color: #45bcb8;
+  font-family: "Lobster";
+  font-size: medium;
+}
+#gridCursosEntrevistas #turns div button h3 {
+  margin: auto;
+  text-shadow: 0 0 2px black;
 }
 
 /************************  Alimento Diario  *******************************/
@@ -354,6 +496,85 @@ body {
   display: grid;
   grid-template-areas: "header" "title" "image";
   grid-template-rows: 10% 5% 85%;
+  font-family: "Lobster";
+}
+#gridAlimentoDiario .mainConstruccion {
+  display: flex;
+  background-color: #e1d828;
+  justify-content: center;
+  padding: 15em 0;
+}
+#gridAlimentoDiario .mainConstruccion .animatedSitio {
+  animation-name: izq;
+  animation-duration: 8s;
+  padding: 20px;
+  font-size: xxx-large;
+}
+#gridAlimentoDiario .mainConstruccion .animatedSitio:hover {
+  color: red;
+}
+@keyframes izq {
+  from {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+#gridAlimentoDiario .mainConstruccion .animateden {
+  animation-name: arriba;
+  animation-duration: 8s;
+  padding: 20px;
+  font-size: xxx-large;
+}
+#gridAlimentoDiario .mainConstruccion .animateden:hover {
+  color: red;
+}
+@keyframes arriba {
+  from {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+#gridAlimentoDiario .mainConstruccion .animatedconstruccion {
+  animation-name: abajo;
+  animation-duration: 8s;
+  padding: 20px;
+  font-size: xxx-large;
+}
+#gridAlimentoDiario .mainConstruccion .animatedconstruccion:hover {
+  color: red;
+}
+@keyframes abajo {
+  from {
+    transform: translateY(200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+#gridAlimentoDiario .mainConstruccion .animatedcarac {
+  animation-name: derecha;
+  animation-duration: 8s;
+  padding: 20px;
+  font-size: xxx-large;
+}
+#gridAlimentoDiario .mainConstruccion .animatedcarac:hover {
+  color: red;
+}
+@keyframes derecha {
+  from {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 /************************  Plan Restaurar  *******************************/
@@ -385,13 +606,14 @@ body {
   text-align: center;
   padding: 20px;
   color: white;
-  border: 1px solid #999;
+  border: 1px solid black;
   border-radius: 50px;
   background-color: #45bcb8;
+  text-shadow: 0 0 2px black;
 }
 #gridPlanRestaurar .links section div:hover {
-  transition: 500ms ease-in-out;
   background-color: #369a96;
+  border: 2px solid black;
 }
 #gridPlanRestaurar .paragraphPR {
   grid: paragraphPR;
@@ -402,87 +624,161 @@ body {
 /************************  Libros  *******************************/
 #gridLibros {
   display: grid;
-  grid-template-areas: "header" "title" "image";
+  grid-template-areas: "header" "title" "libros";
   grid-template-rows: 10% 5% 85%;
 }
-
-/*PARA SITIOS EN CONSTRUCCION*/
-.mainConstruccion {
+#gridLibros #contentCarrusel {
+  overflow: hidden;
+}
+#gridLibros #contentCarrusel a {
+  text-decoration: none;
+  font-size: xxx-large;
+  color: black;
+}
+#gridLibros #contentCarrusel a:hover {
+  color: #45bcb8;
+}
+#gridLibros #contentCarrusel .carrusel {
+  height: 100%;
+  position: relative;
+}
+#gridLibros #contentCarrusel .carrusel .tarjetaCarrusel {
+  height: 100%;
+}
+#gridLibros #contentCarrusel .carrusel .flechasCarrusel {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
-  background-color: #e1d828;
+  align-items: center;
+  justify-content: space-between;
+}
+#gridLibros #contentCarrusel .carrusel #slide-1 {
+  grid-area: image;
+  display: flex;
   justify-content: center;
-  padding: 15em 0;
 }
-.mainConstruccion .animatedSitio {
-  animation-name: izq;
-  animation-duration: 8s;
-  padding: 20px;
-  font-size: xxx-large;
+#gridLibros #contentCarrusel .carrusel #slide-1 .imgLibros {
+  background: url("../images/Libro1.jpg");
+  padding: 15%;
+  margin: auto;
+  border-radius: 5px;
+  border: 1px solid #999;
+  box-shadow: 2px 2px 10px 2px black;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-.mainConstruccion .animatedSitio:hover {
-  color: red;
+#gridLibros #contentCarrusel .carrusel #slide-2 {
+  grid-area: image;
+  display: flex;
+  justify-content: center;
 }
-@keyframes izq {
-  from {
-    transform: translateX(-200px);
-    opacity: 0;
+#gridLibros #contentCarrusel .carrusel #slide-2 .imgLibros {
+  background: url("../images/Libro2.jpg");
+  padding: 15%;
+  margin: auto;
+  border-radius: 5px;
+  border: 1px solid #999;
+  box-shadow: 2px 2px 10px 2px black;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#gridLibros #contentCarrusel .carrusel #slide-3 {
+  grid-area: image;
+  display: flex;
+  justify-content: center;
+}
+#gridLibros #contentCarrusel .carrusel #slide-3 .imgLibros {
+  background: url("../images/Libro3.jpg");
+  padding: 15%;
+  margin: auto;
+  border-radius: 5px;
+  border: 1px solid #999;
+  box-shadow: 2px 2px 10px 2px black;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/*MEDIA QUERIES*/
+@media (max-width: 992px) {
+  /*MQ HOME*/
+  #gridHome {
+    grid-template-areas: "header" "menu" "image" "paragraph" "footer";
+    grid-template-columns: 100%;
+    grid-template-rows: 10% 8% 82% 50% 90%;
   }
-  to {
-    transform: translateX(0);
+  #gridHome .imageHome .divImage {
+    background-image: url("../images/MasQueDos_Completa.jpg");
+  }
+
+  /*MQ NUESTRA HISTORIA*/
+  #gridNuestraHistoria {
+    display: grid;
+    grid-template-areas: "header" "title" "image" "paragraph" "subtitle" "testimony";
+    grid-template-columns: 100%;
+    grid-template-rows: 10% 5% 85% 70% 5% 95%;
+  }
+  #gridNuestraHistoria .testimony {
+    grid-area: testimony;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: stretch;
+  }
+  #gridNuestraHistoria .testimony div {
+    width: 40%;
+    height: 47%;
   }
 }
-.mainConstruccion .animateden {
-  animation-name: arriba;
-  animation-duration: 8s;
-  padding: 20px;
-  font-size: xxx-large;
-}
-.mainConstruccion .animateden:hover {
-  color: red;
-}
-@keyframes arriba {
-  from {
-    transform: translateY(-200px);
-    opacity: 0;
+@media (max-width: 768px) {
+  /*MQ HOME*/
+  #gridHome .imageHome .divImage {
+    width: 85%;
+    height: 70%;
+    background-image: url("../images/MasQueDos_media768px.jpg");
   }
-  to {
-    transform: translateY(0);
+  #gridHome .paragraphHome .divParagraph {
+    width: 85%;
+    height: 70%;
   }
 }
-.mainConstruccion .animatedconstruccion {
-  animation-name: abajo;
-  animation-duration: 8s;
-  padding: 20px;
-  font-size: xxx-large;
-}
-.mainConstruccion .animatedconstruccion:hover {
-  color: red;
-}
-@keyframes abajo {
-  from {
-    transform: translateY(200px);
-    opacity: 0;
+@media (max-width: 576px) {
+  /*MQ HOME*/
+  #gridHome .imageHome .divImage {
+    background-image: url("../images/MasQueDos_Completa.jpg");
   }
-  to {
-    transform: translateY(0);
+
+  /*MQ NUESTRA HISTORIA*/
+  #gridNuestraHistoria .testimony div {
+    width: 70%;
+    height: 47%;
   }
-}
-.mainConstruccion .animatedcarac {
-  animation-name: derecha;
-  animation-duration: 8s;
-  padding: 20px;
-  font-size: xxx-large;
-}
-.mainConstruccion .animatedcarac:hover {
-  color: red;
-}
-@keyframes derecha {
-  from {
-    transform: translateX(200px);
-    opacity: 0;
+
+  /*MQ CURSOS Y ENTREVISTAS*/
+  #gridCursosEntrevistas {
+    display: grid;
+    grid-template-areas: "header" "title" "video" "calendar" "turns";
+    grid-template-columns: 100%;
+    grid-template-rows: 10% 5% 85% 70% 30%;
   }
-  to {
-    transform: translateX(0);
+  #gridCursosEntrevistas #turns {
+    padding: 1%;
+  }
+  #gridCursosEntrevistas #turns div button {
+    width: 100%;
+    height: 50%;
+  }
+
+  /*MQ ALIMENTO DIARIO*/
+  #ADrespo {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: stretch;
   }
 }
 

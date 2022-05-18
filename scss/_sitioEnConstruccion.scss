@@ -1,0 +1,95 @@
+ /*PARA SITIOS EN CONSTRUCCION*/
+ @mixin sitioEnConstruccion {
+    .mainConstruccion {
+
+        display: flex;
+        background-color: #e1d828;
+        justify-content: center;
+        padding: 15em 0;
+
+        .animatedSitio{
+            animation-name: izq;
+            animation-duration: 8s;
+            padding: 20px;
+            font-size: xxx-large;
+            &:hover {
+                color: red;
+            }
+        }
+        
+        @keyframes izq {
+            from {
+                transform: translateX(-200px);
+                opacity: 0;  
+            }
+            
+            to {
+               transform: translateX(0); 
+            }
+        }
+
+        .animateden{
+            animation-name: arriba;
+            animation-duration: 8s;
+            padding: 20px;
+            font-size: xxx-large;
+            &:hover {
+                color: red;
+            }
+        }
+        
+        @keyframes arriba {
+            from {
+                transform: translateY(-200px);
+                opacity: 0;  
+            }
+            
+            to {
+               transform: translateY(0); 
+            }
+        }
+
+        .animatedconstruccion{
+            animation-name: abajo;
+            animation-duration: 8s;
+            padding: 20px;
+            font-size: xxx-large;
+            &:hover {
+                color: red;
+            }
+        }
+        
+        @keyframes abajo {
+            from {
+                transform: translateY(200px);
+                opacity: 0;  
+            }
+            
+            to {
+               transform: translateY(0); 
+            }
+        }
+
+        .animatedcarac{
+            animation-name: derecha;
+            animation-duration: 8s;
+            padding: 20px;
+            font-size: xxx-large;
+            &:hover {
+                color: red;
+            }
+        }
+        
+        @keyframes derecha {
+            from {
+                transform: translateX(200px);
+                opacity: 0;  
+            }
+            
+            to {
+               transform: translateX(0); 
+            }
+        }
+    }
+ }
+        
