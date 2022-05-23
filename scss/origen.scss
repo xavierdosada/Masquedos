@@ -3,7 +3,6 @@
 }
 
 @import "boxstyle";
-@import "sitioEnConstruccion";
 @import "fondoImg";
 
 @font-face {
@@ -370,21 +369,6 @@ body {
     
 }
 
-/************************  Alimento Diario  *******************************/
-
-#gridAlimentoDiario {
-    display: grid;
-    grid-template-areas: 
-    "header"
-    "title"
-    "image";
-
-    grid-template-rows: 10% 5% 85%;
-    font-family: "Lobster";
-
-    @include sitioEnConstruccion;
-}
-
 /************************  Plan Restaurar  *******************************/
 
 #gridPlanRestaurar {
@@ -604,35 +588,25 @@ body {
 
 /*MQ CURSOS Y ENTREVISTAS*/
 
-#gridCursosEntrevistas {
-    display: grid;
-    grid-template-areas: 
-    "header"
-    "title"
-    "video"
-    "calendar"
-    "turns";
+    #gridCursosEntrevistas {
+        display: grid;
+        grid-template-areas: 
+        "header"
+        "title"
+        "video"
+        "calendar"
+        "turns";
 
-    grid-template-columns: 100%;
-    grid-template-rows: 10% 5% 85% 70% 30%;
+        grid-template-columns: 100%;
+        grid-template-rows: 10% 5% 85% 70% 30%;
 
-    #turns {
-        padding: 1%;
-        div {
-            button {
-                @include tamaño(100%, 50%);
+        #turns {
+            padding: 1%;
+            div {
+                button {
+                    @include tamaño(100%, 50%);
+                }
             }
         }
     }
-}
-
-/*MQ ALIMENTO DIARIO*/
-    #ADrespo {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        align-content: stretch;
-    }
-}  
-
-    
+}    
